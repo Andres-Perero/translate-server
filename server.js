@@ -1,9 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const translate = require('translate-google');
+const cors = require('cors');
 
 const app = express();
+
+// Middleware para parsear el cuerpo de las solicitudes en formato JSON
 app.use(bodyParser.json());
+
+// Middleware CORS para permitir solicitudes desde cualquier origen
+app.use(cors());
 
 app.post('/translate', async (req, res) => {
     const { text, target_language } = req.body;
