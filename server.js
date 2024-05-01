@@ -11,6 +11,11 @@ app.use(bodyParser.json());
 // Middleware CORS para permitir solicitudes desde cualquier origen
 app.use(cors());
 
+// Ruta GET '/hola' que responde con "Hola" en pantalla
+app.get('/hola', (req, res) => {
+    res.send('Hola');
+});
+
 app.post('/translate', async (req, res) => {
     const { text, target_language } = req.body;
 
